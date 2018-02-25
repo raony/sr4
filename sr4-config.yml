@@ -1,0 +1,15 @@
+roll: d6>5
+chars:
+        capiroto:
+                strength: 2
+                logic: 5
+                hacking: 5
+                exploit: 5
+                edge: 4
+recipes:
+        hack:
+                type: extended
+                attrs:
+                        - hacking
+                        - exploit
+
