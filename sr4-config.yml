@@ -1,4 +1,5 @@
 roll: d6>5
+default_char: capiroto
 chars:
         capiroto:
                 strength: 2

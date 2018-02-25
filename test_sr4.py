@@ -90,3 +90,9 @@ def test_extended_recipe_with_mods_and_edge():
     assert result.roll.dices == 7
     assert not hasattr(result.roll, 'explode_on')
 
+def test_default_char():
+    sr4.configure({'chars': {'cha1': {'strength': 4, 'hacking': 5, 'exploit': 5}}})
+    sr4.configure({'recipes': {'hack': {'type': 'simple', 'attrs': ['hacking', 'exploit']}}})
+    sr4.configure({'default_char': 'cha1'})
+    assert sr4.roll('hack').roll.dices == 10
+

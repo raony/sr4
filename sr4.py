@@ -18,6 +18,9 @@ def configure(new):
 def character(charname):
     return config['chars'].get(charname, None)
 
+def default_char():
+    return config.get('default_char', None)
+
 def recipe(recipename):
     return config['recipes'].get(recipename, {'type': 'simple', 'attrs': [recipename]})
 
@@ -50,7 +53,14 @@ def extended_roll(charname, attrs, mods):
         yield result
 
 def roll(stuff, mods=0, edge=False, extended=False):
-    charname, stuff = stuff.lower().strip().split('.')
+    stuff = stuff.lower().strip().split('.')
+
+    if len(stuff) == 2:
+        charname, stuff = stuff
+    else:
+        charname = default_char()
+        stuff = stuff[0]
+
     char = character(charname)
     if not char:
         return
