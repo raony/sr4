@@ -7,10 +7,18 @@ chars:
                 hacking: 5
                 exploit: 5
                 edge: 4
+                firearms: 2
+                agility: 2
 recipes:
         hack:
                 type: extended
                 attrs:
                         - hacking
                         - exploit
+        burst:
+                type: simple
+                attrs:
+                        - agility
+                        - firearms
+                mods: -2
 
